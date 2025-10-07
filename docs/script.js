@@ -111,7 +111,7 @@ deleteButton.addEventListener("click", () => {
 
 // Login redirect to GitHub Pages login page
 function login() {
-  window.location.href = `${FRONTEND_URL}login-page/`;
+  window.location.href = `${FRONTEND_URL}login-page/index.html`;
 }
 
 // Logout functionality
