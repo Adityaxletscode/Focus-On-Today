@@ -104,7 +104,7 @@ deleteButton.addEventListener("click", () => {
 });
 
 function login() {
-  window.location.href = "http://localhost:3000";
+  window.location.href = "login-page/public/index.html";
 }
 
 function logout() {
