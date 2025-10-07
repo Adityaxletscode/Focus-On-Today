@@ -1,4 +1,4 @@
-const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/docs/";
+const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/"; // GitHub Pages root
 
 const checkBoxList = document.querySelectorAll(".custom-checkbox");
 const inputFields = document.querySelectorAll(".goal-input");
@@ -109,9 +109,9 @@ deleteButton.addEventListener("click", () => {
   window.location.reload();
 });
 
-// Login redirect to frontend GitHub Pages login page
+// Login redirect to GitHub Pages login page
 function login() {
-  window.location.href = `${FRONTEND_URL}login-page/index.html`;
+  window.location.href = `${FRONTEND_URL}login-page/`;
 }
 
 // Logout functionality
@@ -122,9 +122,4 @@ function logout() {
   window.location.href = FRONTEND_URL;
 }
 
-logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("username");
-  header.style.display = "none";
-  loginNav.style.display = "flex";
-  window.location.href = FRONTEND_URL;
-});
+logoutBtn.addEventListener("click", logout);
