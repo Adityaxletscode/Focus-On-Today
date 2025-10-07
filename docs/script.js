@@ -108,7 +108,7 @@ deleteButton.addEventListener("click", () => {
 });
 
 function login() {
-  window.location.href = "login-page/index.html";
+  window.location.href = "./login-page/index.html";
 }
 
 function logout() {
