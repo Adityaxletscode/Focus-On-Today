@@ -68,7 +68,7 @@ togglePassword.addEventListener("click", () => {
   togglePassword.classList.toggle("fa-eye-slash");
 });
 
-// ✅ Sign Up functionality (POST to Render backend)
+// ✅ Sign Up functionality
 signUpBtn.addEventListener("click", async () => {
   if (title.innerHTML == "Sign Up") {
     const name = document.querySelector(".namefield input").value;
@@ -87,6 +87,7 @@ signUpBtn.addEventListener("click", async () => {
 
       if (data.success) {
         alert(data.message || "Sign-up successful!");
+        // Redirect to main page (docs root)
         window.location.href = `${FRONTEND_URL}index.html?user=${encodeURIComponent(
           data.name
         )}`;
@@ -100,7 +101,7 @@ signUpBtn.addEventListener("click", async () => {
   }
 });
 
-// ✅ Sign In functionality (POST to Render backend)
+// ✅ Sign In functionality
 signInBtn.addEventListener("click", async () => {
   if (title.innerHTML == "Sign In") {
     const email = document.querySelector('input[type="email"]').value;
@@ -118,6 +119,7 @@ signInBtn.addEventListener("click", async () => {
 
       if (data.success) {
         alert(data.message || "Sign-in successful!");
+        // Redirect to main page (docs root)
         window.location.href = `${FRONTEND_URL}index.html?user=${encodeURIComponent(
           data.name
         )}`;
