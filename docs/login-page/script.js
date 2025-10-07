@@ -1,5 +1,5 @@
 const BACKEND_URL = "https://focus-on-today-jioc.onrender.com";
-const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/";
+const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/docs/";
 
 let signUpBtn = document.querySelector(".signupbtn");
 let signInBtn = document.querySelector(".signinbtn");
