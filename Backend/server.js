@@ -1,3 +1,4 @@
+dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -5,8 +6,6 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv");
 const User = require("./models/user");
-
-dotenv.config();
 
 const app = express();
 
@@ -19,7 +18,7 @@ const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/loginDB";
 mongoose
   .connect(MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("❌ Mongoose connection error:", err));
+  .catch((err) => console.error("Mongoose connection error:", err));
 
 app.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
@@ -28,35 +27,29 @@ app.post("/signup", async (req, res) => {
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "User already exists",
-          name: existingUser.name,
-        });
+      return res.status(400).json({
+        success: false,
+        message: "User already exists",
+        name: existingUser.name,
+      });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ name, email, password: hashedPassword });
     await user.save();
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "User signed up successfully",
-        name: user.name,
-      });
+    res.status(200).json({
+      success: true,
+      message: "User signed up successfully",
+      name: user.name,
+    });
   } catch (err) {
     console.error("Signup error:", err);
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Error signing up",
-        error: err.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Error signing up",
+      error: err.message,
+    });
   }
 });
 
@@ -78,21 +71,17 @@ app.post("/signin", async (req, res) => {
         .json({ success: false, message: "Incorrect password" });
     }
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "User signed in successfully",
-        name: user.name,
-      });
+    res.status(200).json({
+      success: true,
+      message: "User signed in successfully",
+      name: user.name,
+    });
   } catch (err) {
-    res
-      .status(500)
-      .json({
-        success: false,
-        message: "Error signing in",
-        error: err.message,
-      });
+    res.status(500).json({
+      success: false,
+      message: "Error signing in",
+      error: err.message,
+    });
   }
 });
 
