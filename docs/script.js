@@ -7,10 +7,10 @@ const progressLabel = document.querySelector(".progress-label");
 const deleteButton = document.querySelector(".delete-button");
 const signInBtn = document.querySelector(".signIn");
 const signUpBtn = document.querySelector(".signUp");
-const header = document.querySelector(".header")
-const welcome=document.getElementById("welcome-msg")
+const header = document.querySelector(".header");
+const welcome = document.getElementById("welcome-msg");
 const loginNav = document.querySelector(".login-btn");
-const logoutBtn=document.querySelector(".logout-btn");
+const logoutBtn = document.querySelector(".logout-btn");
 
 const params = new URLSearchParams(window.location.search);
 const username = params.get("user");
@@ -31,16 +31,18 @@ const allQuotes = [
   "Raise the bar by completing your goals!",
   "Well begun is half done!",
   "Just a step away, Keep going!",
-  "Whoa! You just completed all the goals, time for chill :D"
+  "Whoa! You just completed all the goals, time for chill :D",
 ];
 
 const allGoals = JSON.parse(localStorage.getItem("allGoals")) || {
   first: { name: "", completed: false },
   second: { name: "", completed: false },
-  third: { name: "", completed: false }
+  third: { name: "", completed: false },
 };
 
-let completedGoalsCount = Object.values(allGoals).filter((goal) => goal.completed).length;
+let completedGoalsCount = Object.values(allGoals).filter(
+  (goal) => goal.completed
+).length;
 
 const updateProgressBar = () => {
   progressValue.style.width = `${(completedGoalsCount / 3) * 100}%`;
@@ -62,7 +64,9 @@ checkBoxList.forEach((checkbox) => {
       const inputId = checkbox.nextElementSibling.id;
       if (allGoals[inputId]) {
         allGoals[inputId].completed = !allGoals[inputId].completed;
-        completedGoalsCount = Object.values(allGoals).filter((goal) => goal.completed).length;
+        completedGoalsCount = Object.values(allGoals).filter(
+          (goal) => goal.completed
+        ).length;
         updateProgressBar();
         updateCompleted();
         progressLabel.innerText = allQuotes[completedGoalsCount];
@@ -104,7 +108,7 @@ deleteButton.addEventListener("click", () => {
 });
 
 function login() {
-  window.location.href = "login-page/public/index.html";
+  window.location.href = "login-page/index.html";
 }
 
 function logout() {
@@ -118,4 +122,3 @@ logoutBtn.addEventListener("click", () => {
   loginNav.style.display = "flex";
   window.location.href = window.location.origin + window.location.pathname;
 });
-
