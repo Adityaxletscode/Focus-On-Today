@@ -1,5 +1,5 @@
 // GitHub Pages root (docs is the root for GH Pages)
-const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/docs/";
+const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today";
 
 // Selectors
 const checkBoxList = document.querySelectorAll(".custom-checkbox");
@@ -122,8 +122,8 @@ deleteButton.addEventListener("click", () => {
 function login() {
   // Adjust path depending on current folder
   const path = window.location.pathname.includes("login-page")
-    ? "index.html"
-    : "login-page/index.html";
+    ? "/index.html"
+    : "/login-page/index.html";
   window.location.href = FRONTEND_URL + path;
 }
 
@@ -132,7 +132,7 @@ function logout() {
   localStorage.removeItem("username");
   header.style.display = "none";
   loginNav.style.display = "flex";
-  window.location.href = FRONTEND_URL + "login-page/index.html";
+  window.location.href = FRONTEND_URL + "/login-page/index.html";
 }
 
 logoutBtn.addEventListener("click", logout);

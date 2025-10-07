@@ -1,5 +1,5 @@
 const BACKEND_URL = "https://focus-on-today-jioc.onrender.com";
-const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today/docs/";
+const FRONTEND_URL = "https://adityaxletscode.github.io/Focus-On-Today";
 
 let signUpBtn = document.querySelector(".signupbtn");
 let signInBtn = document.querySelector(".signinbtn");
@@ -88,7 +88,7 @@ signUpBtn.addEventListener("click", async () => {
       if (data.success) {
         alert(data.message || "Sign-up successful!");
         // Redirect to main page (docs root)
-        window.location.href = `${FRONTEND_URL}index.html?user=${encodeURIComponent(
+        window.location.href = `${FRONTEND_URL}/index.html?user=${encodeURIComponent(
           data.name
         )}`;
       } else {
@@ -120,7 +120,7 @@ signInBtn.addEventListener("click", async () => {
       if (data.success) {
         alert(data.message || "Sign-in successful!");
         // Redirect to main page (docs root)
-        window.location.href = `${FRONTEND_URL}index.html?user=${encodeURIComponent(
+        window.location.href = `${FRONTEND_URL}/index.html?user=${encodeURIComponent(
           data.name
         )}`;
       } else {
