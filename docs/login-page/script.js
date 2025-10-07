@@ -1,3 +1,5 @@
+const BACKEND_URL = "https://focus-on-today-jioc.onrender.com";
+
 let signUpBtn = document.querySelector(".signupbtn");
 let signInBtn = document.querySelector(".signinbtn");
 let nameField = document.querySelector(".namefield");
@@ -65,7 +67,7 @@ togglePassword.addEventListener("click", () => {
   togglePassword.classList.toggle("fa-eye-slash");
 });
 
-// ✅ Sign Up functionality (POST to port 3000)
+// ✅ Sign Up functionality (POST to Render backend)
 signUpBtn.addEventListener("click", async () => {
   if (title.innerHTML == "Sign Up") {
     const name = document.querySelector(".namefield input").value;
@@ -73,7 +75,7 @@ signUpBtn.addEventListener("click", async () => {
     const password = document.querySelector('input[type="password"]').value;
 
     try {
-      const res = await fetch("http://localhost:3000/signup", {
+      const res = await fetch(`${BACKEND_URL}/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
@@ -90,7 +92,7 @@ signUpBtn.addEventListener("click", async () => {
       if (data.success) {
         alert(data.message || "Sign-up successful!");
         window.location.href =
-          "/docs/index.html?user=" + encodeURIComponent(data.name);
+          "/index.html?user=" + encodeURIComponent(data.name);
       } else {
         alert(data.message || "Sign-up failed");
       }
@@ -101,14 +103,14 @@ signUpBtn.addEventListener("click", async () => {
   }
 });
 
-// ✅ Sign In functionality (POST to port 3000)
+// ✅ Sign In functionality (POST to Render backend)
 signInBtn.addEventListener("click", async () => {
   if (title.innerHTML == "Sign In") {
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[type="password"]').value;
 
     try {
-      const res = await fetch("http://localhost:3000/signin", {
+      const res = await fetch(`${BACKEND_URL}/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -125,7 +127,7 @@ signInBtn.addEventListener("click", async () => {
       if (data.success) {
         alert(data.message || "Sign-in successful!");
         window.location.href =
-          "/docs/index.html?user=" + encodeURIComponent(data.name);
+          "/index.html?user=" + encodeURIComponent(data.name);
       } else {
         alert(data.message || "Sign-in failed. Please check your credentials");
       }
