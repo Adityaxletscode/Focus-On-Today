@@ -118,3 +118,24 @@ button.disable{
     cursor: pointer;
     font-size: 16px;
 }
+@media (max-width: 480px){
+    .form-box{
+        min-width: unset;
+        width: 94%;
+        padding: 30px 20px;
+    }
+    .form-box h1{
+        font-size: 24px;
+    }
+    .input-field{
+        margin: 10px 0;
+    }
+    .input-field input{
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+    .form-box .underline{
+        margin: 10px auto 30px auto;
+    }
+}
+

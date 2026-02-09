@@ -234,3 +234,47 @@ main{
         height: 24px;
     }
 }
+
+@media (max-width: 480px){
+    .heading{
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+    .container{
+        padding: 20px;
+        max-width: 100%;
+    }
+    .goal-container{
+        padding: 0 12px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    /* Reducing input padding but keeping font-size 16px to prevent zoom on iOS */
+    .goal-input {
+      padding-left: 10px;
+    }
+    .login-btn, .header{
+        justify-content: center;
+        gap: 15px;
+    }
+    .login-btn button, .header button{
+        width: auto;
+        padding: 0 20px;
+        font-size: 14px;
+        flex-basis: auto;
+        min-width: 80px;
+    }
+    .progress-bar {
+        height: 20px;
+        margin-bottom: 30px;
+    }
+    .quote {
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+    .footer {
+        font-size: 10px;
+    }
+}
+
